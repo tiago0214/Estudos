@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\dev\\MeuApp\\MeuApp.csproj": {}
+    "C:\\dev\\Estudos\\MeuApp\\MeuApp.csproj": {}
   },
   "projects": {
-    "C:\\dev\\MeuApp\\MeuApp.csproj": {
+    "C:\\dev\\Estudos\\MeuApp\\MeuApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dev\\MeuApp\\MeuApp.csproj",
+        "projectUniqueName": "C:\\dev\\Estudos\\MeuApp\\MeuApp.csproj",
         "projectName": "MeuApp",
-        "projectPath": "C:\\dev\\MeuApp\\MeuApp.csproj",
+        "projectPath": "C:\\dev\\Estudos\\MeuApp\\MeuApp.csproj",
         "packagesPath": "C:\\Users\\tiago\\.nuget\\packages\\",
-        "outputPath": "C:\\dev\\MeuApp\\obj\\",
+        "outputPath": "C:\\dev\\Estudos\\MeuApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tiago\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -5,16 +5,13 @@ using System.Threading.Tasks;
 
 namespace MeuApp.Classes
 {
-    public class Enums
-    {
 
-    }
     struct Product
     {
         public int Id;
         public string Name;
         public double Price;
-        public EProduct Produto;
+        //public EProduct Produto;
 
         public double PriceInDolar(double dolar)
         {
