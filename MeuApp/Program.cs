@@ -5,6 +5,34 @@ using Microsoft.VisualBasic;
 using System.Collections;
 
 Console.Clear();
+Console.WriteLine("===================funções importantes=========================");
+Console.WriteLine(DateTime.DaysInMonth(2023, 3)); //mostrar quantos dias determinado mes tem;
+//tem uma função para saber se é final de semana ou não.
+//isDaylightSavingTime // método de horário de verão
+
+
+Console.WriteLine(isWeekend(DateTime.Now.DayOfWeek));
+static bool isWeekend(DayOfWeek today)
+{
+    return DayOfWeek.Saturday == today || DayOfWeek.Sunday == today;
+}
+
+
+
+
+Console.WriteLine("=======================Time span===============================");
+//melhor jeito de diminuir uma hora de outra é com o time span.
+//ele é muito sencivel, e eu posso fazer .
+var tempo = DateTime.Now;
+var retirar = 1;
+var timeS = tempo - new TimeSpan(retirar);//se eu não passar parametros ele inicia com 0.
+Console.WriteLine(timeS);
+
+//time span: é uma unidade de medida, para data e hora universal.
+
+
+
+
 Console.WriteLine("=======================Time Zones===============================");
 //recomendavel usar. Porque aqui pega a data global.( sem o +/- por causa dos fuso horário.)
 var utcDate = DateTime.UtcNow;
