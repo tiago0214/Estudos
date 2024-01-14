@@ -1,20 +1,97 @@
 ﻿using System;
 using System.Text;
+using System.Globalization;
 
 Console.Clear();
-//gerar textos muito grandes, não posso abrir de uma vez, porque se não da erro de memória.
-//não posso ficar utilizando o +=, para ficar adicionando, porque se não vai dar erro de memória. Porque toda vez ele cria uma cópia do meu texto.
-//melhor opção é o stringBuilder();
+Console.WriteLine("=======================Time Zones==============================");
+//recomendavel usar. Porque aqui pega a data global.( sem o +/- por causa dos fuso horário.)
+var utcDate = DateTime.UtcNow;
+Console.WriteLine(utcDate);
 
-var texto = new StringBuilder();
-texto.Append("Esse ");
-texto.Append("é ");
-texto.Append("um ");
-texto.Append("texto ");
-texto.Append("válido ");
-//porém eu tenho que converter com o toString(). Porque isso não é uma string e sim um stringBuilder();
-//eu não converti, porque o console.WriteLine(), faz essa conversão automatica,mas se eu quiser usar em outro lugar, eu preciso converter.
-Console.WriteLine(texto);
+Console.WriteLine("=================Globalização de datas=========================");
+//acho que todas essas culturas influenciam em tudo, NO IDIOMA, NA MOEDA...
+var pt = new System.Globalization.CultureInfo("pt-PT");
+var br = new System.Globalization.CultureInfo("pt-BR");
+var en = new System.Globalization.CultureInfo("en-US");
+var de = new System.Globalization.CultureInfo("de-DE");
+var maquina = CultureInfo.CurrentCulture; //Mostra a cultura da minha maquina. 
+//para que eu possa formatar a data, preciso converter para to string.
+//também, eu posso emitir O "System.Globalization" e utilizar somente o CultureInfo. Se eu importar o "System.Globalization" no começo, com o using.
+var enUk = new CultureInfo("en-UK");
+
+Console.WriteLine(DateTime.Now.ToString("D", en));
+Console.WriteLine(DateTime.Now.ToString("D", pt));
+//perceba, que eu acho que por ser uma struct, eu não preciso salvar em uma variavel primeiro, eu posso mandar imprimir de cara
+//O formato eu coloquei em "D" e a cultura é depois da virgula.
+
+
+
+
+
+
+Console.WriteLine("=====================Comparando datas===========================");
+//se eu tentar comparar as datas. Nunca vai dar certo, porque ele pegas toda a estrutura do struct, e com isso ele usa até os milisegundos.
+/*Ex Porque nesse exemplo de baixo, ele compara a estrutura toda, ou seja. Ele compara a Hora*/
+var data1 = DateTime.Now;
+if (data1 == DateTime.Now)
+{
+    Console.WriteLine("É igual");
+}
+else
+{
+    Console.WriteLine("False");
+}
+//posso fazer assim
+var data2 = DateTime.Now;
+if (data2.Date == DateTime.Now.Date)
+{
+    Console.WriteLine("True");
+}
+else
+{
+    Console.WriteLine("False");
+}
+
+
+Console.WriteLine("=====================Formatando datas===========================");
+
+//pegar a data atual.
+var data = DateTime.Now; //não abre e fecha parenteses no Now, porque ele não é um método e sim uma propriedade. F12 para inspencionar
+//formatar a data acima.
+string formatada = String.Format("{0:yyyy-MM-dd hh:mm:ss}", data);
+Console.WriteLine(formatada);
+Console.WriteLine(data.ToString("yyyy"));
+//os dois ai de cima, se comportam igual, 
+Console.WriteLine(data.ToString("g"));//tem um punhado de outras formatações , d,D,t,T,r,
+//cada letra representa uma formatação pré pronta.
+//a formatação com o "s" é muito usada no tipo de dado Json, seu eu precisar converter algo para o front-end, eu tenho que usar.
+//e o "u", é para o json
+
+
+
+
+
+
+
+//Isso aqui, eu criei "Instancia", na real não é instancia, porque é um struct. Eu crio uma estrutura que esta vindo com os valores padrões.
+var dataa = new DateTime(1994, 08, 16, 08, 50, 13);
+
+
+Console.WriteLine("=================Utilizando o String Builder====================");
+
+// //gerar textos muito grandes, não posso abrir de uma vez, porque se não da erro de memória.
+// //não posso ficar utilizando o +=, para ficar adicionando, porque se não vai dar erro de memória. Porque toda vez ele cria uma cópia do meu texto.
+// //melhor opção é o stringBuilder();
+
+// var texto = new StringBuilder();
+// texto.Append("Esse ");
+// texto.Append("é ");
+// texto.Append("um ");
+// texto.Append("texto ");
+// texto.Append("válido ");
+// //porém eu tenho que converter com o toString(). Porque isso não é uma string e sim um stringBuilder();
+// //eu não converti, porque o console.WriteLine(), faz essa conversão automatica,mas se eu quiser usar em outro lugar, eu preciso converter.
+// Console.WriteLine(texto);
 
 
 
