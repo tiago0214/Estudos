@@ -1,14 +1,40 @@
 ﻿using System;
 using System.Text;
 using System.Globalization;
+using Microsoft.VisualBasic;
+using System.Collections;
 
 Console.Clear();
-Console.WriteLine("=======================Time Zones==============================");
+Console.WriteLine("=======================Time Zones===============================");
 //recomendavel usar. Porque aqui pega a data global.( sem o +/- por causa dos fuso horário.)
 var utcDate = DateTime.UtcNow;
 Console.WriteLine(utcDate);
+Console.WriteLine(utcDate.ToLocalTime());
 
-Console.WriteLine("=================Globalização de datas=========================");
+//posso utilizar o timezone de outro lugar.
+
+var timeZoneAustralia = TimeZoneInfo.FindSystemTimeZoneById("Pacific/Auckland");
+//essa variavel de cima, somente pega o time zone, mas não aplica em nada.
+Console.WriteLine(timeZoneAustralia);
+//para aplicar eu preciso fazer isso:
+var horaAustralia = TimeZoneInfo.ConvertTimeFromUtc(utcDate, timeZoneAustralia);
+Console.WriteLine(horaAustralia);
+
+//Para pegar e saber o time zone de tudo instalado no meu sistema operacional.
+Console.WriteLine("Time zones instalados-----------------");
+var timezones = TimeZoneInfo.GetSystemTimeZones();
+
+foreach (TimeZoneInfo timezone in timezones)
+{
+    //Console.WriteLine(timezone.Id);
+    //Console.WriteLine(timezone);
+    //Console.WriteLine(TimeZoneInfo.ConvertTimeFromUtc(utcDate, timezone));
+    //Console.WriteLine("-------------");
+}
+
+
+
+Console.WriteLine("=================Globalização de datas==========================");
 //acho que todas essas culturas influenciam em tudo, NO IDIOMA, NA MOEDA...
 var pt = new System.Globalization.CultureInfo("pt-PT");
 var br = new System.Globalization.CultureInfo("pt-BR");
