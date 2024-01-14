@@ -5,6 +5,18 @@ using Microsoft.VisualBasic;
 using System.Collections;
 
 Console.Clear();
+Console.WriteLine("===========================Array===============================");
+
+
+
+
+Console.WriteLine("===========================Moedas==============================");
+decimal valor = 10.25m;
+Console.WriteLine(valor.ToString("C", CultureInfo.CreateSpecificCulture("pt-BR")));
+//as coisas de cultura valem aqui.Ou seja, eu posso usar o formatador também, como por exemplo o "C".
+//tenho que pesquisar sobre os formatadores, existem muitos.
+
+
 Console.WriteLine("===================funções importantes=========================");
 Console.WriteLine(DateTime.DaysInMonth(2023, 3)); //mostrar quantos dias determinado mes tem;
 //tem uma função para saber se é final de semana ou não.
