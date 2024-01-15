@@ -8,9 +8,13 @@ using System.Collections;
 
 Console.WriteLine("===========================Array===============================");
 //Teste[] meuArray = new Teste[1] { new Teste() };
+//meuArray[0] = new Test();
 // posso criar arrays de structs
 
-//struct Teste { }
+//struct Teste { 
+// public int Id {get;set;}
+//}
+//Console.WriteLine(meuArray[0].Id) //lembrar que eu acesso as propriedades do meu array com a notação ponto.
 
 Console.WriteLine("===========================Moedas==============================");
 decimal valor = 10.25m;
