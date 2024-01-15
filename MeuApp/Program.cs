@@ -4,11 +4,13 @@ using System.Globalization;
 using Microsoft.VisualBasic;
 using System.Collections;
 
-Console.Clear();
+
+
 Console.WriteLine("===========================Array===============================");
+//Teste[] meuArray = new Teste[1] { new Teste() };
+// posso criar arrays de structs
 
-
-
+//struct Teste { }
 
 Console.WriteLine("===========================Moedas==============================");
 decimal valor = 10.25m;
