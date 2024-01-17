@@ -9,12 +9,15 @@ Console.Clear();
 Console.WriteLine("=========================Try Catch=============================");
 //posso criar a minha própria exceção. Tem que ser por meio de uma classe e colocar ela para herdar da classe Exception
 
-
-
 try
 {
     Salvar("");
 }
+catch (MinhaExcecao ex)
+{
+    Console.WriteLine("Exceção customizada.");
+    Console.WriteLine(ex.QuandoAconteceu);
+}//se atente, que se passar em um catch, ele não vai no outro. Porque no meu bloco try, eu tenho esses 2 catch.
 catch (ArgumentNullException ex)
 {
     Console.WriteLine(ex.Message);
@@ -39,6 +42,7 @@ try
         Console.WriteLine(meuArr[i]);
     }
 }
+
 catch (IndexOutOfRangeException ex)
 {
     Console.WriteLine("Não encontrei o index na lista.");
