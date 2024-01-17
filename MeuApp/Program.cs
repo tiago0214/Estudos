@@ -3,8 +3,52 @@ using System.Text;
 using System.Globalization;
 using Microsoft.VisualBasic;
 using System.Collections;
+using MeuApp.Classes;
+
+Console.Clear();
+Console.WriteLine("=========================Try Catch=============================");
+//posso criar a minha própria exceção. Tem que ser por meio de uma classe e colocar ela para herdar da classe Exception
 
 
+
+try
+{
+    Salvar("");
+}
+catch (ArgumentNullException ex)
+{
+    Console.WriteLine(ex.Message);
+    //Console.WriteLine("Ops. Algo deu errado.");
+}
+
+
+static void Salvar(string texto)
+{
+    if (String.IsNullOrEmpty(texto))
+    {
+        throw new MinhaExcecao(DateTime.Now);
+    }
+}
+
+var meuArr = new int[5];
+
+try
+{
+    for (int i = 0; i <= meuArr.Length; i++)
+    {
+        Console.WriteLine(meuArr[i]);
+    }
+}
+catch (IndexOutOfRangeException ex)
+{
+    Console.WriteLine("Não encontrei o index na lista.");
+    Console.WriteLine(ex.Message);
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Ops. Algo deu errado! e não vou parar a execução do programa");
+    Console.WriteLine($"Posso usar aqui o erro que eu capturei. {ex.Message}");
+}
 
 Console.WriteLine("===========================Array===============================");
 //Teste[] meuArray = new Teste[1] { new Teste() };
